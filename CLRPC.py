@@ -2,6 +2,7 @@ import os
 import numpy as np
 import calculations as c
 
+os.system('cls')
 print()
 print('\033[94m' + '     _________ .____   _____________________________  ' + '\033[0m')
 print('\033[94m' + '     \_   ___ \|    |  \______   \______   \_   ___ \ ' + '\033[0m')

@@ -19,6 +19,7 @@ def help_message():
     print(' Type \'matrix\' to enter matrix/vector calculation mode.')
     print(' Type \'eval\' to enter Python expression evaluation mode.')
     print(' Type \'latex\' to enter matrix/vector calculation mode.')
+    print(' Type \'plot\' to enter plotting mode.')
     print('------------------------------------------------------------\n')
 
 def matrix_help():
