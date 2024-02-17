@@ -4,6 +4,7 @@ from numpy.linalg import inv
 import termplotlib as tpl
 import ast
 import os
+import sys
 
 
 
@@ -58,6 +59,15 @@ errors = {0:'Process exited with 0 errors.', 1:'Error 1: Problem encountered in 
             209:'Error 209: Problem creating linspace array.',
             210:'Error 210: Problem encountered in defining y function.'}
 
+
+"""
+Clear terminal
+"""
+def clear_terminal():
+    if sys.platform.startswith('win'):
+        os.system('cls')
+    else:
+        os.system('clear')
 
 
 """
@@ -241,23 +251,23 @@ def arcsin(stack, ans):
     except:
         print_error(errors[102])
 
-def cosine(stack, ans):
-    """ Computes the cosine of a value.
+def cine(stack, ans):
+    """ Computes the cine of a value.
     """
     try:
         a = pop(stack)
-        result = np.cos(a)
+        result = np.c(a)
         push(stack, result)
         ans.append(result)
     except:
         print_error(errors[102])
 
-def arccos(stack, ans):
-    """ Computes the arccos of a value.
+def arcc(stack, ans):
+    """ Computes the arcc of a value.
     """
     try:
         a = pop(stack)
-        result = np.arccos(a)
+        result = np.arcc(a)
         push(stack, result)
         ans.append(result)
     except:
@@ -314,7 +324,7 @@ Submenus
 """
 def python_evaluate():
     """ This function requests an expression as input until user enters 'x' to exit.
-    Will return to main calculator if 'x' is chosen.
+    Will return to main calculator if 'x' is chen.
     Use eval() to evaluate expression and print it.
     """
     lst = []
@@ -325,14 +335,14 @@ def python_evaluate():
         for i in lst:
             string = string + str(i) + ' '
         python_eval_input = input(string + '\033[0;32m' + "| " + '\033[0m')
-        os.system('cls')
+        clear_terminal()
         match python_eval_input:
             case 'b':
                 pop(lst)
             case 'c':
                 lst = clear_stack()
             case 'x':
-                os.system('cls')
+                clear_terminal()
                 break
             case 'help':
                 python_eval_help()
@@ -354,14 +364,14 @@ def latex():
         latex_eval_input = input('Enter expression: ')
         match latex_eval_input:
             case 'x':
-                os.system('cls')
+                clear_terminal()
                 break
             case 'clear':
-                os.system('cls')
+                clear_terminal()
                 print('\033[0;32m' + ' LaTeX Eval Mode' + '\033[0m')
                 print('\033[0:32m' + '-----------------' + '\033[0m' + '\n')
             case 'help':
-                os.system('cls')
+                clear_terminal()
                 latex_help()
                 print()
                 print('\033[0;32m' + ' LaTeX Eval Mode' + '\033[0m')
@@ -391,7 +401,7 @@ def matrix_and_vector():
         for keys, value in m_v_dict.items():
             string = string + keys + ' '
         m_v_input = input(string + '\033[0;32m' + "| " + '\033[0m')
-        os.system('cls')
+        clear_terminal()
         match m_v_input:
             # Operations
             case '*':
@@ -411,7 +421,7 @@ def matrix_and_vector():
             case 'b':
                 m_v_dict.popitem()
             case 'x':
-                os.system('cls')
+                clear_terminal()
                 break
             case 'help':
                 matrix_help()
@@ -506,17 +516,17 @@ def plot():
                 except:
                     print_error(errors[209])
             elif x_data == 'x':
-                os.system('cls')
+                clear_terminal()
                 break
             elif x_data == 'help':
-                os.system('cls')
+                clear_terminal()
                 plot_help()
                 print()
                 print('\033[0;32m' + ' Plotting Mode' + '\033[0m')
                 print('\033[0:32m' + '---------------' + '\033[0m' + '\n')
                 continue
             elif x_data == 'clear':
-                os.system('cls')
+                clear_terminal()
                 print('\033[0;32m' + ' Plotting Mode' + '\033[0m')
                 print('\033[0:32m' + '---------------' + '\033[0m' + '\n')
                 continue
@@ -536,13 +546,13 @@ def plot():
                 except:
                     print_error(errors[210])
             elif y_data == 'x':
-                os.system('cls')
+                clear_terminal()
                 break
             elif y_data == 'help':
                 plot_help()
                 continue
             elif y_data == 'clear':
-                os.system('cls')
+                clear_terminal()
                 print('\033[0;32m' + ' Plotting Mode' + '\033[0m')
                 print('\033[0:32m' + '---------------' + '\033[0m' + '\n')
                 continue
