@@ -25,5 +25,12 @@ The matrix calculation mode allows for simple matrix and vector calculations. Ca
 
 The plotting mode allows users to make simple plots using the termplotlib package that uses gnuplot (note that gnuplot must be installed). The plots will be displayed within the terminal in ASCII format. The plotting mode currently only supports 2D line plots. Enter the x and y arrays in the following format: '[#, #,...]'. Additionally, numpy linspace arrays can be specified for the x-data. To do this, type 'linspace <enter>'. You will be prompted to enter the linspace parameters in the format '[start val, end val, divisions]'. A function can be specified for the y-data by typing 'func <enter?'. The user will be prompted to enter a Pythone expression using x as a variable to find the y-values of the plot. Typing 'help' will show the available commands and usage help within the plotting mode.
 
-## Note for Linux Users
-If you are using this calculator on Linux, all lines in the calculations.py file that say 'os.system('cls')' must be replaced with 'os.system('clear')'.
+## Adding Shortcut to Powershell Profile on Windows
+We can add a shortcut to run the program from any directory. To do this, we will set an alias in our Powershell profile. In the Windows terminal, type 'nvim $PROFILE' and replace 'nvim' with your text editor of choice. Add the following lines to your Powershell profile.
+```
+function Run-CLRPC {
+    python pathtofolder\CLRPC.py
+}
+Set-Alias clrpc Run-CLRPC
+```
+Make sure to replace 'pathtofolder' with the path to the folder containing both CLRPC.py and calculations.py. Save the file and relaunch the terminal. When you type 'clrpc' the program should run.
